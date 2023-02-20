@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useAppSelector, useAppDispatch } from '../../app/hooks';
 import {
   decrement,
+  reset,
   increment,
   incrementByAmount,
   incrementAsync,
@@ -61,6 +62,9 @@ export function Counter() {
           onClick={() => dispatch(incrementIfOdd(incrementValue))}
         >
           Add If Odd
+        </button>
+        <button className={styles.button} onClick={() => dispatch(reset())}>
+          Reset
         </button>
       </div>
     </div>
