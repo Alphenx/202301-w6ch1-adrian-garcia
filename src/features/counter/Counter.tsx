@@ -9,11 +9,15 @@ import {
   incrementAsync,
   incrementIfOdd,
   selectCount,
+  randomNum,
+  selectStatus,
 } from './counterSlice';
 import styles from './Counter.module.css';
 
 export function Counter() {
   const count = useAppSelector(selectCount);
+  const status = useAppSelector(selectStatus);
+
   const dispatch = useAppDispatch();
   const [incrementAmount, setIncrementAmount] = useState('2');
 
@@ -53,18 +57,31 @@ export function Counter() {
         </button>
         <button
           className={styles.asyncButton}
+          aria-label="Increment async"
           onClick={() => dispatch(incrementAsync(incrementValue))}
         >
           Add Async
         </button>
         <button
           className={styles.button}
+          aria-label="Increment if Odd"
           onClick={() => dispatch(incrementIfOdd(incrementValue))}
         >
           Add If Odd
         </button>
-        <button className={styles.button} onClick={() => dispatch(reset())}>
+        <button
+          className={styles.button}
+          aria-label="Reset"
+          onClick={() => dispatch(reset())}
+        >
           Reset
+        </button>
+        <button
+          className={status === 'loading' ? styles.asyncButton : styles.button}
+          aria-label="Random num"
+          onClick={() => dispatch(randomNum())}
+        >
+          Get random num
         </button>
       </div>
     </div>

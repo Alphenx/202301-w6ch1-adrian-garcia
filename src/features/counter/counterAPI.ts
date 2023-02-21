@@ -4,3 +4,9 @@ export function fetchCount(amount = 1) {
     setTimeout(() => resolve({ data: amount }), 500)
   );
 }
+
+export const getRandomNum = async () => {
+  return await fetch(
+    'http://www.randomnumberapi.com/api/v1.0/random?min=10&max=50&count=1'
+  );
+};
