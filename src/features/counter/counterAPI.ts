@@ -7,6 +7,6 @@ export function fetchCount(amount = 1) {
 
 export const getRandomNum = async () => {
   return await fetch(
-    'http://www.randomnumberapi.com/api/v1.0/random?min=10&max=50&count=1'
+    'https://www.randomnumberapi.com/api/v1.0/random?min=10&max=50&count=1'
   );
 };
